@@ -79,7 +79,6 @@ except:
     print("Servo 4 error during homing sequence")
     quit()
 
-
 # Initializing walking sequence
 '''The following represents the robot walking methodology.
 Option1: Shift weight to back legs and move both front legs.
@@ -99,15 +98,17 @@ At time t = 3; q(3) = servoHome + 30, q'(3) = 0, q''(3) = 0
 '''
 
 t = 0
-
 while t < 3:
-    servo1.move(-(0.7407*(t**5)) + (5.556*(t**4)) - (11.111*(t**3)) + 120)
-    servo4.move((0.7407*(t**5)) - (5.556*(t**4)) + (11.111*(t**3)) + 145)
+    servo1.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + 120)  # forward move
+    servo4.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + 145)  # forward move
     time.sleep(0.05)
     t += 0.1
 
-while t < 6:
-    servo2.move((0.7407*(t**5)) - (5.556*(t**4)) + (11.111*(t**3)) + 125)
-    servo3.move(-(0.7407*(t**5)) + (5.556*(t**4)) - (11.111*(t**3)) + 100)
+t = 0
+while t < 3:
+    servo1.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + 120)  # bwackward move
+    servo4.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + 145)  # backward move
+    servo2.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + 125)  # forward move
+    servo3.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + 100)  # forward move
     time.sleep(0.05)
     t += 0.1
