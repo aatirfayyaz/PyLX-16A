@@ -21,7 +21,7 @@ except ServoTimeoutError as e:
 
 # Homing / Boot sequence
 ''' This is a homing/boot sequence to check servo motors are moving correctly.
-The sequence moves each servo by +5 and -10 degrees from current position and then
+The sequence moves each servo by +10 and -10 degrees from current position and then
 homes it at 120 degrees. A time delay of 0.5s between moves has been implemented.'''
 
 time.sleep(2)
@@ -94,16 +94,20 @@ q''(t) = d/dt(q'(t)) = 20*A*(t**3) + 12*B*(t**2) + 6*C*(t) + 2*D
 
 with boundary conditions:
 
-At time t = 0; q(t) = 120, q'(t) = 0, q''(t) = 0
-At time t = T; q(T) = angle, q'(T) = 0, q''(t) = 0
+At time t = 0; q(t) = servoHome, q'(t) = 0, q''(t) = 0
+At time t = 3; q(3) = servoHome + 30, q'(3) = 0, q''(3) = 0
 '''
 
-# t = 0
-# while True:
-#     servo1.move(sin(t) * 40 + 120)
-#     servo2.move(cos(t) * 40 + 120)
-#     servo3.move(sin(t) * 40 + 120)
-#     servo4.move(cos(t) * 40 + 120)
-#
-#     time.sleep(0.05)
-#     t += 0.1
+t = 0
+
+while t < 3:
+    servo1.move((0.7407*(t**5)) - (5.556*(t**4)) + (11.111*(t**3)) + 120)
+    servo4.move((0.7407*(t**5)) - (5.556*(t**4)) + (11.111*(t**3)) + 145)
+    time.sleep(0.05)
+    t += 0.1
+
+while t < 6:
+    servo2.move((0.7407*(t**5)) - (5.556*(t**4)) + (11.111*(t**3)) + 125)
+    servo3.move((0.7407*(t**5)) - (5.556*(t**4)) + (11.111*(t**3)) + 100)
+    time.sleep(0.05)
+    t += 0.1
