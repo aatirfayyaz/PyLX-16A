@@ -96,19 +96,26 @@ with boundary conditions:
 At time t = 0; q(t) = servoHome, q'(t) = 0, q''(t) = 0
 At time t = 3; q(3) = servoHome + 30, q'(3) = 0, q''(3) = 0
 '''
+angleChange = 30
+servo1Final = servo1Home + angleChange
+servo2Final = servo2Home + angleChange
+servo3Final = servo3Home + angleChange
+servo4Final = servo4Home + angleChange
+
 
 t = 0
 while t < 3:
-    servo1.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + 120)  # forward move
-    servo4.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + 145)  # forward move
+    servo1.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + servo1Home)  # forward move
+    servo4.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo4Home)  # forward move
     time.sleep(0.05)
     t += 0.1
 
 t = 0
+
 while t < 3:
-    servo1.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + 120)  # bwackward move
-    servo4.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + 145)  # backward move
-    servo2.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + 125)  # forward move
-    servo3.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + 100)  # forward move
+    servo1.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo1Final)  # backward move
+    servo4.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + servo1Final)  # backward move
+    servo2.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo2Home)  # forward move
+    servo3.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + servo3Home)  # forward move
     time.sleep(0.05)
     t += 0.1
