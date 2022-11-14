@@ -31,53 +31,56 @@ servo2Home = 125
 servo3Home = 100
 servo4Home = 145
 
-try:
-    servo1.move(servo1Home + 10)
-    time.sleep(0.5)
-    servo1.move(servo1Home - 10)
-    time.sleep(0.5)
-    servo1.move(servo1Home)
-    time.sleep(0.5)
+bootMode = False
 
-except:
-    print("Servo 1 error during homing sequence")
-    quit()
+if bootMode:
+    try:
+        servo1.move(servo1Home + 10)
+        time.sleep(0.5)
+        servo1.move(servo1Home - 10)
+        time.sleep(0.5)
+        servo1.move(servo1Home)
+        time.sleep(0.5)
 
-try:
-    servo2.move(servo2Home + 10)
-    time.sleep(0.5)
-    servo2.move(servo2Home - 10)
-    time.sleep(0.5)
-    servo2.move(servo2Home)
-    time.sleep(0.5)
+    except:
+        print("Servo 1 error during homing sequence")
+        quit()
 
-except:
-    print("Servo 2 error during homing sequence")
-    quit()
+    try:
+        servo2.move(servo2Home + 10)
+        time.sleep(0.5)
+        servo2.move(servo2Home - 10)
+        time.sleep(0.5)
+        servo2.move(servo2Home)
+        time.sleep(0.5)
 
-try:
-    servo3.move(servo3Home + 10)
-    time.sleep(0.5)
-    servo3.move(servo3Home - 10)
-    time.sleep(0.5)
-    servo3.move(servo3Home)
-    time.sleep(0.5)
+    except:
+        print("Servo 2 error during homing sequence")
+        quit()
 
-except:
-    print("Servo 3 error during homing sequence")
-    quit()
+    try:
+        servo3.move(servo3Home + 10)
+        time.sleep(0.5)
+        servo3.move(servo3Home - 10)
+        time.sleep(0.5)
+        servo3.move(servo3Home)
+        time.sleep(0.5)
 
-try:
-    servo4.move(servo4Home + 10)
-    time.sleep(0.5)
-    servo4.move(servo4Home - 10)
-    time.sleep(0.5)
-    servo4.move(servo4Home)
-    time.sleep(0.5)
+    except:
+        print("Servo 3 error during homing sequence")
+        quit()
 
-except:
-    print("Servo 4 error during homing sequence")
-    quit()
+    try:
+        servo4.move(servo4Home + 10)
+        time.sleep(0.5)
+        servo4.move(servo4Home - 10)
+        time.sleep(0.5)
+        servo4.move(servo4Home)
+        time.sleep(0.5)
+
+    except:
+        print("Servo 4 error during homing sequence")
+        quit()
 
 # Initializing walking sequence
 '''The following represents the robot walking methodology.
