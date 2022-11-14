@@ -111,7 +111,7 @@ while t < 3:
     t += 0.1
 
 print(servo1.get_angle_offset(servo1Final))
-#
+
 # t = 0
 # while t < 3:
 #     servo1.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo1Final)  # backward move
