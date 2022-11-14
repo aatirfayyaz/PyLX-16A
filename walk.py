@@ -98,7 +98,7 @@ At time t = 3; q(3) = servoHome + 30, q'(3) = 0, q''(3) = 0
 '''
 angleChange = 30
 
-servo1Final = servo1Home + angleChange
+servo1Final = servo1Home - angleChange
 servo2Final = servo2Home + angleChange
 servo3Final = servo3Home + angleChange
 servo4Final = servo4Home + angleChange
@@ -115,7 +115,7 @@ t = 0
 while t < 3:
     servo2.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo2Home)  # forward move
     servo3.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + servo3Home)  # forward move
-    # servo1.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo1Final)  # backward move
+    servo1.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo1Final)  # backward move
     servo4.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + servo4Final)  # backward move
     time.sleep(0.05)
     t += 0.1
