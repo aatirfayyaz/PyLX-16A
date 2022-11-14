@@ -31,7 +31,7 @@ servo2Home = 125
 servo3Home = 100
 servo4Home = 145
 
-bootMode = True
+bootMode = False
 
 if bootMode:
     try:
