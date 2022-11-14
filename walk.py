@@ -110,12 +110,13 @@ while t < 3:
     time.sleep(0.05)
     t += 0.1
 
-t = 0
-
-while t < 3:
-    servo1.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo1Final)  # backward move
-    servo4.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + servo4Final)  # backward move
-    servo2.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo2Home)  # forward move
-    servo3.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + servo3Home)  # forward move
-    time.sleep(0.05)
-    t += 0.1
+print(servo1.get_angle_offset(servo1Final))
+#
+# t = 0
+# while t < 3:
+#     servo1.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo1Final)  # backward move
+#     servo4.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + servo4Final)  # backward move
+#     servo2.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo2Home)  # forward move
+#     servo3.move(-(0.7407 * (t ** 5)) + (5.556 * (t ** 4)) - (11.111 * (t ** 3)) + servo3Home)  # forward move
+#     time.sleep(0.05)
+#     t += 0.1
