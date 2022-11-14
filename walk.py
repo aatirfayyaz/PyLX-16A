@@ -109,7 +109,6 @@ while t < 3:
     servo4.move((0.7407 * (t ** 5)) - (5.556 * (t ** 4)) + (11.111 * (t ** 3)) + servo4Home)  # forward move
     time.sleep(0.05)
     t += 0.1
-    t+= 0.1
 
 t = 0
 
