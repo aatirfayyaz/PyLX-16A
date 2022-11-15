@@ -29,7 +29,7 @@ time.sleep(2)
 servo1Home = 120
 servo2Home = 125
 servo3Home = 100
-servo4Home = 145
+servo4Home = 135
 
 bootMode = False
 
