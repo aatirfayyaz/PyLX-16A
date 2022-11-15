@@ -99,16 +99,16 @@ with boundary conditions:
 At time t = 0; q(t) = servoHome, q'(t) = 0, q''(t) = 0
 At time t = 3; q(3) = servoHome + 30, q'(3) = 0, q''(3) = 0
 '''
-angleChange = 30
+angleChange = 50
 
 servo1Final = servo1Home - angleChange
 servo2Final = servo2Home + angleChange
 servo3Final = servo3Home - angleChange
 servo4Final = servo4Home + angleChange
 
-coeffA = 0.7407
-coeffB = 5.556
-coeffC = 11.111
+coeffA = 1.2346
+coeffB = 9.2593
+coeffC = 18.5185
 
 
 steps = 10
