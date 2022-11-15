@@ -109,9 +109,9 @@ servo3Final = servo3Home - angleChange
 servo4Final = servo4Home + angleChange
 
 # For angleChange = 30 degrees, timeEnd = 3
-# coeffA = 0.7407
-# coeffB = 5.5556
-# coeffC = 11.1111
+coeffA = 0.7407
+coeffB = 5.5556
+coeffC = 11.1111
 
 # For angleChange = 40 degrees, timeEnd = 3
 # coeffA = 0.9877
@@ -119,9 +119,9 @@ servo4Final = servo4Home + angleChange
 # coeffC = 14.8148
 
 # For angleChange = 30 degrees, timeEnd = 2
-coeffA = 5.625
-coeffB = 28.1250
-coeffC = 37.5
+# coeffA = 5.625
+# coeffB = 28.1250
+# coeffC = 37.5
 
 
 steps = 5
