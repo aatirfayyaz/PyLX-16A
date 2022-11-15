@@ -116,7 +116,7 @@ coeffA = 0.9877
 coeffB = 7.4074
 coeffC = 14.8148
 
-steps = 10
+steps = 5
 
 t = 0
 while t < 3:
