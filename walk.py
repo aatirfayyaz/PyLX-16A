@@ -97,57 +97,65 @@ q''(t) = d/dt(q'(t)) = 20*A*(t**3) + 12*B*(t**2) + 6*C*(t) + 2*D
 with boundary conditions:
 
 At time t = 0; q(t) = servoHome, q'(t) = 0, q''(t) = 0
-At time t = 3; q(3) = servoHome + 30, q'(3) = 0, q''(3) = 0
+At time t = T; q(T) = servoHome + angleChange, q'(T) = 0, q''(T) = 0
 '''
 angleChange = 30
+timeEnd = 2
+timeSleep = 0.02
 
 servo1Final = servo1Home - angleChange
 servo2Final = servo2Home + angleChange
 servo3Final = servo3Home - angleChange
 servo4Final = servo4Home + angleChange
 
-# For 30 degrees
-coeffA = 0.7407
-coeffB = 5.5556
-coeffC = 11.1111
+# For angleChange = 30 degrees, timeEnd = 3
+# coeffA = 0.7407
+# coeffB = 5.5556
+# coeffC = 11.1111
 
-# For 40 degrees
+# For angleChange = 40 degrees, timeEnd = 3
 # coeffA = 0.9877
 # coeffB = 7.4074
 # coeffC = 14.8148
 
+# For angleChange = 30 degrees, timeEnd = 2
+coeffA = 5.625
+coeffB = 28.1250
+coeffC = 37.5
+
+
 steps = 5
 
 t = 0
-while t < 3:
+while t < timeEnd:
     servo1.move(-(coeffA * (t ** 5)) + (coeffB * (t ** 4)) - (coeffC * (t ** 3)) + servo1Home)  # forward move
     servo4.move((coeffA * (t ** 5)) - (coeffB * (t ** 4)) + (coeffC * (t ** 3)) + servo4Home)  # forward move
-    time.sleep(0.05)
+    time.sleep(timeSleep)
     t += 0.1
 
 for step in range(steps):
     t = 0
-    while t < 3:
+    while t < timeEnd:
         servo2.move((coeffA * (t ** 5)) - (coeffB * (t ** 4)) + (coeffC * (t ** 3)) + servo2Home)  # forward move
         servo3.move(-(coeffA * (t ** 5)) + (coeffB * (t ** 4)) - (coeffC * (t ** 3)) + servo3Home)  # forward move
         servo1.move((coeffA * (t ** 5)) - (coeffB * (t ** 4)) + (coeffC * (t ** 3)) + servo1Final)  # backward move
         servo4.move(-(coeffA * (t ** 5)) + (coeffB * (t ** 4)) - (coeffC * (t ** 3)) + servo4Final)  # backward move
-        time.sleep(0.05)
+        time.sleep(timeSleep)
         t += 0.1
 
     t = 0
-    while t < 3:
+    while t < timeEnd:
         servo2.move(-(coeffA * (t ** 5)) + (coeffB * (t ** 4)) - (coeffC * (t ** 3)) + servo2Final)  # backward move
         servo3.move((coeffA * (t ** 5)) - (coeffB * (t ** 4)) + (coeffC * (t ** 3)) + servo3Final)  # backward move
         servo1.move(-(coeffA * (t ** 5)) + (coeffB * (t ** 4)) - (coeffC * (t ** 3)) + servo1Home)  # forward move
         servo4.move((coeffA * (t ** 5)) - (coeffB * (t ** 4)) + (coeffC * (t ** 3)) + servo4Home)  # forward move
-        time.sleep(0.05)
+        time.sleep(timeSleep)
         t += 0.1
 
 t = 0
 # last move
-while t < 3:
+while t < timeEnd:
     servo1.move((coeffA * (t ** 5)) - (coeffB * (t ** 4)) + (coeffC * (t ** 3)) + servo1Final)  # backward move
     servo4.move(-(coeffA * (t ** 5)) + (coeffB * (t ** 4)) - (coeffC * (t ** 3)) + servo4Final)  # backward move
-    time.sleep(0.05)
+    time.sleep(timeSleep)
     t += 0.1
