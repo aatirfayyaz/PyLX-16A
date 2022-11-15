@@ -101,7 +101,7 @@ At time t = T; q(T) = servoHome + angleChange, q'(T) = 0, q''(T) = 0
 '''
 angleChange = 30
 timeEnd = 2
-timeSleep = 0.02
+timeSleep = 0.03
 
 servo1Final = servo1Home - angleChange
 servo2Final = servo2Home + angleChange
