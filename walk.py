@@ -24,7 +24,7 @@ except ServoTimeoutError as e:
 The sequence moves each servo by +10 and -10 degrees from current position and then
 homes it at 120 degrees. A time delay of 0.5s between moves has been implemented.'''
 
-time.sleep(2)
+time.sleep(1)
 
 servo1Home = 120
 servo2Home = 125
@@ -159,3 +159,50 @@ while t < timeEnd:
     servo4.move(-(coeffA * (t ** 5)) + (coeffB * (t ** 4)) - (coeffC * (t ** 3)) + servo4Final)  # backward move
     time.sleep(timeSleep)
     t += 0.1
+
+shutDown = False
+
+if shutDown:
+    try:
+        error = servo1.get_angle_offset(servo1Home)
+        time.sleep(0.2)
+        if error > 0.25:
+            print("Servo 1 off it's home angle")
+        servo1.disable_torque()
+
+    except:
+        print("Servo 1 error during shutdown sequence")
+        quit()
+
+    try:
+        error = servo2.get_angle_offset(servo2Home)
+        time.sleep(0.2)
+        if error > 0.25:
+            print("Servo 2 off it's home angle")
+        servo2.disable_torque()
+
+    except:
+        print("Servo 2 error during shutdown sequence")
+        quit()
+
+    try:
+        error = servo3.get_angle_offset(servo3Home)
+        time.sleep(0.2)
+        if error > 0.25:
+            print("Servo 3 off it's home angle")
+        servo3.disable_torque()
+
+    except:
+        print("Servo 3 error during shutdown sequence")
+        quit()
+
+    try:
+        error = servo4.get_angle_offset(servo4Home)
+        time.sleep(0.2)
+        if error > 0.25:
+            print("Servo 4 off it's home angle")
+        servo4.disable_torque()
+
+    except:
+        print("Servo 4 error during shutdown sequence")
+        quit()
