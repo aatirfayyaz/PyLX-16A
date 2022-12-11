@@ -101,7 +101,7 @@ At time t = T; q(T) = servoHome + angleChange, q'(T) = 0, q''(T) = 0
 '''
 angleChange = 30
 timeEnd = 1
-timeSleep = 0.001
+timeSleep = 0.002
 timeStep = 0.025
 
 servo1Final = servo1Home - angleChange
@@ -162,7 +162,7 @@ while t < timeEnd:
     servo4.move((coeffA * (t ** 5)) - (coeffB * (t ** 4)) + (coeffC * (t ** 3)) + servo4Home)  # forward move
     time.sleep(timeSleep)
     if t < 0.2:
-        t += 0.2
+        t += timeStep * 4
     else:
         t += timeStep
 
