@@ -101,7 +101,7 @@ At time t = T; q(T) = servoHome + angleChange, q'(T) = 0, q''(T) = 0
 '''
 angleChange = 30
 timeEnd = 1
-timeSleep = 0.002
+timeSleep = 0.05    # 0.002
 timeStep = 0.025
 
 servo1Final = servo1Home - angleChange
@@ -154,7 +154,7 @@ coeffA = 180
 coeffB = 450
 coeffC = 300
 
-steps = 15
+steps = 10
 
 t = 0
 while t < timeEnd:
