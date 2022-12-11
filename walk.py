@@ -161,11 +161,10 @@ while t < timeEnd:
     servo1.move(-(coeffA * (t ** 5)) + (coeffB * (t ** 4)) - (coeffC * (t ** 3)) + servo1Home)  # forward move
     servo4.move((coeffA * (t ** 5)) - (coeffB * (t ** 4)) + (coeffC * (t ** 3)) + servo4Home)  # forward move
     time.sleep(timeSleep)
-    if t < 0.2 or t >= 0.8:
+    if t < 0.2:
         t += 0.2
     else:
         t += timeStep
-
 
 for step in range(steps):
     t = 0
@@ -175,7 +174,7 @@ for step in range(steps):
         servo1.move((coeffA * (t ** 5)) - (coeffB * (t ** 4)) + (coeffC * (t ** 3)) + servo1Final)  # backward move
         servo4.move(-(coeffA * (t ** 5)) + (coeffB * (t ** 4)) - (coeffC * (t ** 3)) + servo4Final)  # backward move
         time.sleep(timeSleep)
-        if t < 0.2 or t >= 0.8:
+        if t < 0.2:
             t += 0.2
         else:
             t += timeStep
@@ -187,7 +186,7 @@ for step in range(steps):
         servo1.move(-(coeffA * (t ** 5)) + (coeffB * (t ** 4)) - (coeffC * (t ** 3)) + servo1Home)  # forward move
         servo4.move((coeffA * (t ** 5)) - (coeffB * (t ** 4)) + (coeffC * (t ** 3)) + servo4Home)  # forward move
         time.sleep(timeSleep)
-        if t < 0.2 or t >= 0.8:
+        if t < 0.2:
             t += 0.2
         else:
             t += timeStep
@@ -198,7 +197,7 @@ while t < timeEnd:
     servo1.move((coeffA * (t ** 5)) - (coeffB * (t ** 4)) + (coeffC * (t ** 3)) + servo1Final)  # backward move
     servo4.move(-(coeffA * (t ** 5)) + (coeffB * (t ** 4)) - (coeffC * (t ** 3)) + servo4Final)  # backward move
     time.sleep(timeSleep)
-    if t < 0.2 or t >= 0.8:
+    if t < 0.2:
         t += 0.2
     else:
         t += timeStep
